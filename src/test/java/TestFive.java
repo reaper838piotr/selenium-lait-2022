@@ -74,11 +74,21 @@ public class TestFive {
         Boolean message_is_displayed = driver.findElement(By.xpath("//div[@id='txtAge']")).isDisplayed();
         Assert.assertTrue(message_is_displayed);
     }
-    @Test
-    public void testLocalFile() {
-        driver.get("file:///Users/bartlomiej.kalinski/Documents/selenium-niedziela/home.html");
-        String text = driver.findElement(By.xpath("/html/body/p")).getText();
-        Assert.assertEquals("jestemniedziela",text);
+
+        @Test
+        public void testLocalFile() {
+            driver.get("https://www.lambdatest.com/selenium-playground/radiobutton-demo");
+            driver.findElement(By.xpath("//input[@value='Other']")).click();
+            driver.findElement(By.xpath("//input[@value='0 - 5']")).click();
+            driver.findElement(By.xpath("//div[@class='w-8/12 smtablet:w-full left-input mr-20 pr-30 border-r-4 border-black smtablet:border-r-0 smtablet:mr-0 smtablet:pr-0']//button")).click();
+            String text = driver.findElement(By.xpath("//span[@class='genderbutton']")).getText();
+            String age = driver.findElement(By.xpath("//span[@class='groupradiobutton']")).getText();
+            Assert.assertEquals("Other", text);
+            Assert.assertEquals("0 - 5", age);
+
+        }
+
+
     }
 
-}
+
