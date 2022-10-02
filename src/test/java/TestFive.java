@@ -74,5 +74,11 @@ public class TestFive {
         Boolean message_is_displayed = driver.findElement(By.xpath("//div[@id='txtAge']")).isDisplayed();
         Assert.assertTrue(message_is_displayed);
     }
+    @Test
+    public void testLocalFile() {
+        driver.get("file:///Users/bartlomiej.kalinski/Documents/selenium-niedziela/home.html");
+        String text = driver.findElement(By.xpath("/html/body/p")).getText();
+        Assert.assertEquals("jestemniedziela",text);
+    }
 
 }
